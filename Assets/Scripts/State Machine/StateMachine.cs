@@ -14,12 +14,11 @@ public class StateMachine
 
     public void Tick()
     {
-        //TODO: Bring this back if I go back to the old way of doing transitions
-        //var transition = GetTransition();
-        //if (transition != null)
-        //{
-        //    SetState(transition.To);
-        //}
+        var transition = GetTransition();
+        if (transition != null)
+        {
+            SetState(transition.To);
+        }
         _currentState?.Tick();
     }
 

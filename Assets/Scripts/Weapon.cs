@@ -12,11 +12,13 @@ public abstract class Weapon : MonoBehaviour
     private void Start()
     {
         location = GetComponentInParent<WeaponLocation>();
+
+        currentResetTime = resetTime;
     }
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if (location.IsNotFiring) return;
+        if (!location || location.IsNotFiring) return;
 
         if (collision.TryGetComponent(out Health health))
         {

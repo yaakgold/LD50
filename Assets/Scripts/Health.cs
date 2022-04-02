@@ -12,13 +12,15 @@ public class Health : MonoBehaviour
 
     public int MaxHealth { get; private set; }
 
-    private void Start()
+    private void Awake()
     {
         MaxHealth = currentHealth;
     }
 
     public void DoDamage(int amount)
     {
+        //if (MaxHealth == 0) MaxHealth = currentHealth;
+
         currentHealth -= amount;
         currentHealth = Mathf.Min(currentHealth, MaxHealth);
 
@@ -26,7 +28,7 @@ public class Health : MonoBehaviour
         {
             Death.Invoke();
         }
-        else if(amount < 0)
+        else if(amount > 0)
         {
             TookDamage.Invoke();
         }

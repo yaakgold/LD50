@@ -46,9 +46,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   damage: 5
-  resetTime: 0
+  resetTime: 0.5
   range: 2
-  player: {fileID: 0}
   pauseTime: 0.01
   attackSpeed: 10
 --- !u!58 &5358042017488434512
