@@ -230,7 +230,7 @@ MonoBehaviour:
   Healed:
     m_PersistentCalls:
       m_Calls: []
-  currentHealth: 10
+  currentHealth: 25
 --- !u!61 &3962652824015161646
 BoxCollider2D:
   m_ObjectHideFlags: 0

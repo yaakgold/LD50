@@ -47,7 +47,7 @@ public class PlayerController : MonoBehaviour
             Mathf.Clamp(transform.position.y, 
                     roomHeight * GameManager.Instance.currentRoom.coord.y - roomHeight * .5f, 
                     roomHeight * GameManager.Instance.currentRoom.coord.y + roomHeight * .5f),
-            transform.position.z);
+            -9);
 
         transform.position = clampedPos;
         

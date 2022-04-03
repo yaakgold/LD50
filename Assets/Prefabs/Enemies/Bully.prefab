@@ -364,7 +364,7 @@ MonoBehaviour:
   Healed:
     m_PersistentCalls:
       m_Calls: []
-  currentHealth: 10
+  currentHealth: 15
 --- !u!61 &3962652824015161646
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -575,7 +575,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: 'Bully: Yo moma'
+  m_text: 'Bully: Cam'
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 7371eb3bc28544443bc749108bc012a3, type: 2}
   m_sharedMaterial: {fileID: -7590303331806891966, guid: 7371eb3bc28544443bc749108bc012a3, type: 2}
