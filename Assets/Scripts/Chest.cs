@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using TMPro;
 using UnityEngine;
 
 public class Chest : MonoBehaviour
@@ -13,6 +14,36 @@ public class Chest : MonoBehaviour
 
     Vector3 offset = new Vector3(0, 0, -1);
 
+    [SerializeField] TMP_Text costText;
+
+    private void Start()
+    {
+        SetVal();
+    }
+
+    public void SetVal()
+    {
+        cost = Random.Range(100, 500);
+
+        costText.text = $"Cost: {cost}";
+
+        if (cost <= 300)
+        {
+            rarity = eRarity.NORMAL;
+            costText.color = Color.white;
+        }
+        else if (cost <= 450)
+        {
+            rarity = eRarity.RARE;
+            costText.color = Color.green;
+        }
+        else
+        {
+            rarity = eRarity.EPIC;
+            costText.color = Color.red;
+        }
+    }
+
     private void OnTriggerStay2D(Collider2D collision)
     {
         if(collision.CompareTag("Player") && GameManager.Instance.playerInteraction)
@@ -25,11 +56,8 @@ public class Chest : MonoBehaviour
     //Checks that the player has enough money
     public void ValidateOpen()
     {
-        if(GameManager.Instance.currentMoneyAmount > cost)
+        if(GameManager.Instance.currentMoneyAmount >= cost)
         {
-            print("Open");
-            GameManager.Instance.currentMoneyAmount -= cost;
-
             Open();
         }
     }

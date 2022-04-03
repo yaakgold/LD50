@@ -24,12 +24,12 @@ public class AttackRangedState : IState
 
     public void OnEnter()
     {
-        Debug.LogError("Enter Attack Ranged state");
+        
     }
 
     public void OnExit()
     {
-        Debug.LogError("Exit Attack Ranged state");
+        
     }
 
     public void Tick()

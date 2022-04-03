@@ -126,8 +126,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d93f45e01967de44692fd60c3d65946d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  damage: 1
+  damage: 4
   isRanged: 1
-  resetTime: 0.3
+  resetTime: 0.7
+  hitTag: 
+  ownerType: Player
   projectile: {fileID: 7241233496428887547, guid: 85b69bdad7754054d81423d0eaa33002, type: 3}
   fireVelocity: 5

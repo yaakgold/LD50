@@ -1,6 +1,7 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using TMPro;
 using UnityEngine;
 
 public class OlderSiblingAI : EnemyAI
@@ -14,6 +15,8 @@ public class OlderSiblingAI : EnemyAI
     public int numMoneyDrop = 1;
 
     Vector3 offset = new Vector3(.25f, .25f, 0);
+
+    [SerializeField] TMP_Text healthBarText;
 
     private void Awake()
     {
@@ -59,7 +62,10 @@ public class OlderSiblingAI : EnemyAI
         if(TryGetComponent(out Health health))
         {
             health.Death.AddListener(OnDeath);
+            health.TookDamage.AddListener(() => AudioManager.instance?.Play("EnemyHurt"));
         }
+
+        numMoneyDrop = UnityEngine.Random.Range(1, 6);
     }
 
     private void Update()
@@ -72,11 +78,20 @@ public class OlderSiblingAI : EnemyAI
 
         if (movement.magnitude > 0) GetComponentInChildren<Wobble>().doTheWobble = true;
         else GetComponentInChildren<Wobble>().doTheWobble = false;
+
+        healthBarText.gameObject.SetActive(GameManager.Instance.ShowHealth);
+
+        if (TryGetComponent(out Health health))
+        {
+            healthBarText.text = $"HP: {health.currentHealth}";
+        }
     }
 
     private void OnDeath()
     {
-        if(transform.parent.TryGetComponent(out Room room))
+        AudioManager.instance?.Play("EnemyDie");
+
+        if (transform.parent.TryGetComponent(out Room room))
         {
             room.RemoveEnemy(gameObject);
         }

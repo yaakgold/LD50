@@ -19,6 +19,8 @@ public class Fist : Weapon
     {
         if (!CanFire()) return;
 
+        AudioManager.instance?.Play(ownerType + "Fire2");
+
         StartCoroutine(AttackFistVisual());
         StartCoroutine(Timer());
     }

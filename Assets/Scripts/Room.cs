@@ -122,6 +122,7 @@ public class Room : MonoBehaviour
         GameManager.Instance.player.transform.position = transform.position;
         GameManager.Instance.AgePlayer();
 
+        if (GameManager.Instance.player == null) return;
         if(GameManager.Instance.player.TryGetComponent(out Health health))
         {
             health.DoDamage(-GameManager.Instance.amountToHealOnRoomEnter);
@@ -213,7 +214,8 @@ public class Room : MonoBehaviour
             if (west != null && west.door.doorVal != 0)
                 west.door.doorVal = eDoorVal.UNLOCKED;
 
-            Instantiate(chestPref, transform.position, Quaternion.identity, transform);
+            Vector3 offset = new Vector3(0, 0, -1);
+            Instantiate(chestPref, transform.position + offset, Quaternion.identity, transform);
         }
     }
 }

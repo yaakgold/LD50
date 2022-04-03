@@ -48,6 +48,8 @@ MonoBehaviour:
   damage: 5
   isRanged: 0
   resetTime: 0.5
+  hitTag: Enemy
+  ownerType: Player
   range: 2
   pauseTime: 0.01
   attackSpeed: 10

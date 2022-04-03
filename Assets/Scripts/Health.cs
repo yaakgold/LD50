@@ -21,10 +21,16 @@ public class Health : MonoBehaviour
     {
         //if (MaxHealth == 0) MaxHealth = currentHealth;
 
+        if(TryGetComponent(out PlayerController pc))
+        {
+            if(amount > 0)
+                amount = (int)(pc.healthDamageMult * amount);
+        }
+
         currentHealth -= amount;
         currentHealth = Mathf.Min(currentHealth, MaxHealth);
 
-        if(currentHealth < 0)
+        if(currentHealth <= 0)
         {
             Death.Invoke();
         }

@@ -1,6 +1,7 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
@@ -23,6 +24,8 @@ public class GameManager : MonoBehaviour
         }
     }
     #endregion
+
+    public static string ScoreString = "LD50Score";
 
     public const int studentAge = 15;
     public const int adultAge = 30;
@@ -57,6 +60,11 @@ public class GameManager : MonoBehaviour
     public int currentMoneyAmount;
     [SerializeField] int moneyWorth;
 
+    private List<Powerup> powerups = new List<Powerup>();
+    public bool ShowHealth { get; private set; }
+
+    public int restarts = 0;
+
     public float GetAgePercentage()
     {
         return ((float)playerAge / deathAge);
@@ -64,6 +72,7 @@ public class GameManager : MonoBehaviour
 
     public void RestartGame()
     {
+        restarts++;
         RoomManager.Instance.SetupGameMap();
     }
 
@@ -101,6 +110,11 @@ public class GameManager : MonoBehaviour
         playerAge = Mathf.Clamp(playerAge + amount, 5, deathAge + 10);
 
         gameUI.UpdateAgeText(playerAge);
+
+        if(amount > 0)
+        {
+            AudioManager.instance.Play("AgeUp");
+        }
 
         if(playerAge >= oldAge)
         {
@@ -161,6 +175,8 @@ public class GameManager : MonoBehaviour
 
     public void SpendMoney(int amt)
     {
+        AudioManager.instance?.Play("SpendMoney");
+
         currentMoneyAmount -= amt;
 
         gameUI.UpdateMoneyText();
@@ -168,7 +184,43 @@ public class GameManager : MonoBehaviour
 
     public void GainPowerup(Powerup pup)
     {
-        pup.action();
+        AudioManager.instance?.Play("GetPowerup");
+
+        if(pup.timer == 0)
+        {
+            pup.action();
+            return;
+        }
+
+        powerups.Add(pup);
+
+        gameUI.AddPup(pup);
+    }
+
+    public void RemovePUP(string pName)
+    {
+        Powerup p = null;
+
+        for (int i = 0; i < powerups.Count; i++)
+        {
+            if(powerups[i].pupName.ToLower().Trim() == pName.ToLower().Trim())
+            {
+                p = powerups[i];
+                break;
+            }
+        }
+
+        if(p.pupName != null)
+        {
+            AudioManager.instance?.Play("LostPowerup");
+            p.deactivate();
+            powerups.Remove(p);
+        }
+    }
+
+    public void ToggleShowHealth(bool val)
+    {
+        ShowHealth = val;
     }
 }
 

@@ -21,7 +21,7 @@ public class AttackState : IState
 
     public void OnEnter()
     {
-        Debug.LogError("Enter Attack state");
+        
     }
 
     public void OnExit()

@@ -5,6 +5,11 @@ using UnityEngine.InputSystem;
 
 public class PlayerController : MonoBehaviour
 {
+    [HideInInspector]
+    public float defaultSpeed;
+
+    public float healthDamageMult = 1;
+
     [SerializeField] float speed = 5;
     [SerializeField] WeaponLocation weaponLocationLeft, weaponLocationRight;
     [SerializeField] WeaponRotation weaponRotation;
@@ -14,10 +19,13 @@ public class PlayerController : MonoBehaviour
 
     private void Start()
     {
+        defaultSpeed = speed;
+
         if(TryGetComponent(out Health health))
         {
             health.Death.AddListener(OnDeath);
             health.TookDamage.AddListener(UpdateHealthUI);
+            health.TookDamage.AddListener(() => AudioManager.instance?.Play("PlayerHit"));
             health.Healed.AddListener(UpdateHealthUI);
         }
     }
@@ -60,6 +68,8 @@ public class PlayerController : MonoBehaviour
     {
         if(collision.CompareTag("Money") && GameManager.Instance.playerInteraction)
         {
+            AudioManager.instance?.Play("GetMoney");
+
             Destroy(collision.gameObject);
             GameManager.Instance.AddMoney();
         }
@@ -96,8 +106,14 @@ public class PlayerController : MonoBehaviour
     }
     #endregion
 
+    public void SetSpeed(float sp)
+    {
+        speed = sp;
+    }
+
     public void OnDeath()
     {
+        AudioManager.instance?.Play("PlayerDie");
         GameManager.Instance.EndGame();
     }
 

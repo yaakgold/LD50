@@ -11,5 +11,7 @@ public class Powerup : MonoBehaviour
     public float timer;
     public float amount;
     public Sprite spr;
+    public string pupName;
     public Func<bool> action;
+    public Func<bool> deactivate;
 }

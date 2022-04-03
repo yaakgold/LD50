@@ -18,9 +18,16 @@ public class Ranged : Weapon
     {
         if (!CanFire()) return;
 
+        AudioManager.instance?.Play(ownerType + "Fire1");
+
         var proj = Instantiate(projectile, transform.position, transform.rotation);
         if(proj.TryGetComponent(out Projectile p))
         {
+            if (location.GetComponentInParent<PlayerController>() != null)
+            {
+                damage = (int)(location.GetComponentInParent<PlayerController>().healthDamageMult * defaultDamage);
+            }
+
             p.Fire(fireVelocity, damage);
         }
         
