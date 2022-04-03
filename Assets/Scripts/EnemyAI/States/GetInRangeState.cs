@@ -17,7 +17,7 @@ public class GetInRangeState : IState
 
     public void OnEnter()
     {
-        Debug.Log("Enter GIR state");
+        Debug.LogError("Enter GIR state");
     }
 
     public void OnExit()

@@ -8,6 +8,7 @@ public class EnemyAI : MonoBehaviour
     public WeaponLocation weaponLocationLeft, weaponLocationRight;
     public WeaponRotation weaponRotation;
     [SerializeField] protected float range;
+    [SerializeField] protected float rangedRange;
     [SerializeField] protected float speed;
     [SerializeField] protected float attackSpeed;
 

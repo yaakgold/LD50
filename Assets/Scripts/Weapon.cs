@@ -5,6 +5,7 @@ using UnityEngine;
 public abstract class Weapon : MonoBehaviour
 {
     public int damage;
+    public bool isRanged = false;
     public float resetTime;
     protected float currentResetTime;
     protected WeaponLocation location;

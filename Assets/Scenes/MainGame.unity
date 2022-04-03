@@ -154,6 +154,7 @@ RectTransform:
   m_Children:
   - {fileID: 1595952562}
   - {fileID: 652128893}
+  - {fileID: 984797794}
   m_Father: {fileID: 1508254542}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -378,7 +379,7 @@ Camera:
   m_Enabled: 1
   serializedVersion: 2
   m_ClearFlags: 2
-  m_BackGroundColor: {r: 0.19215687, g: 0.3019608, b: 0.4745098, a: 0}
+  m_BackGroundColor: {r: 0, g: 0, b: 0, a: 0}
   m_projectionMatrixMode: 1
   m_GateFitMode: 2
   m_FOVAxisMode: 0
@@ -634,6 +635,140 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 652128892}
   m_CullTransparentMesh: 1
+--- !u!1 &984797793
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 984797794}
+  - component: {fileID: 984797796}
+  - component: {fileID: 984797795}
+  m_Layer: 5
+  m_Name: txt_Money
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!224 &984797794
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 984797793}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 30245682}
+  m_RootOrder: 2
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 1, y: 1}
+  m_AnchorMax: {x: 1, y: 1}
+  m_AnchoredPosition: {x: 0, y: 0}
+  m_SizeDelta: {x: 500, y: 100}
+  m_Pivot: {x: 1, y: 1}
+--- !u!114 &984797795
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 984797793}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f4688fdb7df04437aeb418b961361dc5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Material: {fileID: 0}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_RaycastTarget: 1
+  m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
+  m_Maskable: 1
+  m_OnCullStateChanged:
+    m_PersistentCalls:
+      m_Calls: []
+  m_text: 'Money: 0'
+  m_isRightToLeft: 0
+  m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+  m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+  m_fontSharedMaterials: []
+  m_fontMaterial: {fileID: 0}
+  m_fontMaterials: []
+  m_fontColor32:
+    serializedVersion: 2
+    rgba: 4294967295
+  m_fontColor: {r: 1, g: 1, b: 1, a: 1}
+  m_enableVertexGradient: 0
+  m_colorMode: 3
+  m_fontColorGradient:
+    topLeft: {r: 1, g: 1, b: 1, a: 1}
+    topRight: {r: 1, g: 1, b: 1, a: 1}
+    bottomLeft: {r: 1, g: 1, b: 1, a: 1}
+    bottomRight: {r: 1, g: 1, b: 1, a: 1}
+  m_fontColorGradientPreset: {fileID: 0}
+  m_spriteAsset: {fileID: 0}
+  m_tintAllSprites: 0
+  m_StyleSheet: {fileID: 0}
+  m_TextStyleHashCode: -1183493901
+  m_overrideHtmlColors: 0
+  m_faceColor:
+    serializedVersion: 2
+    rgba: 4294967295
+  m_fontSize: 36
+  m_fontSizeBase: 36
+  m_fontWeight: 400
+  m_enableAutoSizing: 0
+  m_fontSizeMin: 18
+  m_fontSizeMax: 72
+  m_fontStyle: 0
+  m_HorizontalAlignment: 4
+  m_VerticalAlignment: 512
+  m_textAlignment: 65535
+  m_characterSpacing: 0
+  m_wordSpacing: 0
+  m_lineSpacing: 0
+  m_lineSpacingMax: 0
+  m_paragraphSpacing: 0
+  m_charWidthMaxAdj: 0
+  m_enableWordWrapping: 1
+  m_wordWrappingRatios: 0.4
+  m_overflowMode: 0
+  m_linkedTextComponent: {fileID: 0}
+  parentLinkedComponent: {fileID: 0}
+  m_enableKerning: 1
+  m_enableExtraPadding: 0
+  checkPaddingRequired: 0
+  m_isRichText: 1
+  m_parseCtrlCharacters: 1
+  m_isOrthographic: 1
+  m_isCullingEnabled: 0
+  m_horizontalMapping: 0
+  m_verticalMapping: 0
+  m_uvLineOffset: 0
+  m_geometrySortingOrder: 0
+  m_IsTextObjectScaleStatic: 0
+  m_VertexBufferAutoSizeReduction: 0
+  m_useMaxVisibleDescender: 1
+  m_pageToDisplay: 1
+  m_margin: {x: 0, y: 0, z: 0, w: 0}
+  m_isUsingLegacyAnimationComponent: 0
+  m_isVolumetricText: 0
+  m_hasFontAssetChanged: 0
+  m_baseMaterial: {fileID: 0}
+  m_maskOffset: {x: 0, y: 0, z: 0, w: 0}
+--- !u!222 &984797796
+CanvasRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 984797793}
+  m_CullTransparentMesh: 1
 --- !u!1 &1018631861
 GameObject:
   m_ObjectHideFlags: 0
@@ -727,6 +862,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   ageText: {fileID: 1595952563}
   hpText: {fileID: 652128894}
+  moneyText: {fileID: 984797795}
   topPanel: {fileID: 30245681}
   deathScreen: {fileID: 228428012}
 --- !u!1 &1508254538
@@ -1443,9 +1579,52 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   playerAge: 0
   deathAge: 80
-  playerAddAmount: 5
+  playerAgeAddAmount: 5
   amountToHealOnRoomEnter: 20
+  currentAgeGroup: 0
   player: {fileID: 0}
   playerInteraction: 0
   gameUI: {fileID: 1025064807}
   playerPref: {fileID: 778256235402180039, guid: 05258c9e572bf5847b87dbea1a85f603, type: 3}
+  playerSprites:
+  - {fileID: 21300000, guid: 961aaf9623b534149a765f0659eec329, type: 3}
+  - {fileID: 21300000, guid: 523d8e4657f50a94da6340edc1c19e91, type: 3}
+  - {fileID: 21300000, guid: f3843fa5703b2d04dab5fc1ba0add65f, type: 3}
+  - {fileID: 21300000, guid: e313b6b8843f17f469835e408a9db493, type: 3}
+  meleeWeaponY:
+    ageGroup: 0
+    weaponPref: {fileID: 5358042017488434511, guid: 3e92351bc8529ba47ab9239a01220ae4, type: 3}
+  rangedWeaponY:
+    ageGroup: 0
+    weaponPref: {fileID: 3138897509179610823, guid: c4e4097bada80d6408b96ec16012874c, type: 3}
+  meleeWeaponS:
+    ageGroup: 1
+    weaponPref: {fileID: 5358042017488434511, guid: 7034d6dd32cdd614696952f12211e1a1, type: 3}
+  rangedWeaponS:
+    ageGroup: 1
+    weaponPref: {fileID: 3138897509179610823, guid: 71139b1a8dfe3cc43a90cf883454c8d9, type: 3}
+  meleeWeaponA:
+    ageGroup: 2
+    weaponPref: {fileID: 5358042017488434511, guid: 3c2a315564baa6d4290e53489dca11d0, type: 3}
+  rangedWeaponA:
+    ageGroup: 2
+    weaponPref: {fileID: 3138897509179610823, guid: 6fe71ea36c9cfe0449f9de964f7b64cf, type: 3}
+  meleeWeaponO:
+    ageGroup: 3
+    weaponPref: {fileID: 5358042017488434511, guid: 51c19e5b2db60fa4f9aee2e042e1971f, type: 3}
+  rangedWeaponO:
+    ageGroup: 0
+    weaponPref: {fileID: 3138897509179610823, guid: 000c1fa0759814940b91635f5d0f4775, type: 3}
+  youngEnemies:
+  - {fileID: 3962652824015161645, guid: 8ec080f4fe0cdcf438533edd2b260836, type: 3}
+  - {fileID: 3962652824015161645, guid: 5b1daac12a542414ba1c5de6c62776d0, type: 3}
+  studentEnemies:
+  - {fileID: 3962652824015161645, guid: 2637635cdbc15f04291ab9961adb54d9, type: 3}
+  - {fileID: 3962652824015161645, guid: 32b21eb608da0df448352366ffaf667a, type: 3}
+  adultEnemies:
+  - {fileID: 3962652824015161645, guid: 78fab93c859698042b1b17071baaf765, type: 3}
+  oldEnemies:
+  - {fileID: 3962652824015161645, guid: 78fab93c859698042b1b17071baaf765, type: 3}
+  currentRoom: {fileID: 0}
+  currentMoneyAmount: 0
+  moneyWorth: 50

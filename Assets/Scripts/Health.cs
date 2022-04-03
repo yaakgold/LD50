@@ -36,8 +36,6 @@ public class Health : MonoBehaviour
         {
             Healed.Invoke();
         }
-
-        print(name + " " + currentHealth);
     }
 
 }

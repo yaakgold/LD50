@@ -38,6 +38,9 @@ public class RoomManager : MonoBehaviour
         SetupGameMap();
     }
 
+    public int GetRoomWidth() { return roomWidth; }
+    public int GetRoomHeight() { return roomHeight; }
+
     public void SetupGameMap()
     {
         SetOffsets();

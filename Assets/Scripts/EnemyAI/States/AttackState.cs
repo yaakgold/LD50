@@ -9,18 +9,19 @@ public class AttackState : IState
     bool canAttemptFireLeft = true;
     bool canAttemptFireRight = true;
 
-    float currentResetTime, resetTime;
+    float currentResetTimeLeft, resetTimeLeft;
+    float currentResetTimeRight, resetTimeRight;
 
     public AttackState(Weapon lft, Weapon rgt, float rstTime)
     {
         left = lft;
         right = rgt;
-        currentResetTime = resetTime = rstTime;
+        currentResetTimeRight = resetTimeRight = currentResetTimeLeft = resetTimeLeft = rstTime;
     }
 
     public void OnEnter()
     {
-        Debug.Log("Enter Attack state");
+        Debug.LogError("Enter Attack state");
     }
 
     public void OnExit()
@@ -35,14 +36,14 @@ public class AttackState : IState
             if (canAttemptFireLeft && left.CanFire())
             {
                 left.Fire();
-                GameManager.Instance.StartCoroutine(Timer(true));
+                GameManager.Instance.StartCoroutine(TimerLeft());
             }
             else if (right != null)
             {
                 if (canAttemptFireRight && right.CanFire())
                 {
                     right.Fire();
-                    GameManager.Instance.StartCoroutine(Timer(false));
+                    GameManager.Instance.StartCoroutine(TimerRight());
                 }
             }
         }
@@ -51,27 +52,42 @@ public class AttackState : IState
             if (canAttemptFireRight && right.CanFire())
             {
                 right.Fire();
-                GameManager.Instance.StartCoroutine(Timer(false));
+                GameManager.Instance.StartCoroutine(TimerRight());
             }
         }
     }
 
-    private IEnumerator Timer(bool left)
+    private IEnumerator TimerLeft()
     {
-        if(left) canAttemptFireLeft = false;
-        else canAttemptFireRight = false;
+        canAttemptFireLeft = false;
 
-        while (currentResetTime > 0)
+        while (currentResetTimeLeft > 0)
         {
-            currentResetTime -= Time.deltaTime;
+            currentResetTimeLeft -= Time.deltaTime;
             yield return new WaitForEndOfFrame();
         }
 
-        resetTime = Random.Range(resetTime / 1.25f, resetTime * 1.25f);
+        resetTimeLeft = Random.Range(resetTimeLeft/ 1.25f, resetTimeLeft * 1.25f);
 
-        currentResetTime = resetTime;
+        currentResetTimeLeft = resetTimeLeft;
 
-        if (left) canAttemptFireLeft = true;
-        else canAttemptFireRight = true;
+        canAttemptFireLeft = true;
+    }
+
+    private IEnumerator TimerRight()
+    {
+        canAttemptFireRight = false;
+
+        while (currentResetTimeRight > 0)
+        {
+            currentResetTimeRight -= Time.deltaTime;
+            yield return new WaitForEndOfFrame();
+        }
+
+        resetTimeRight = Random.Range(resetTimeRight / 1.25f, resetTimeRight * 1.25f);
+
+        currentResetTimeRight = resetTimeRight;
+
+        canAttemptFireRight = true;
     }
 }

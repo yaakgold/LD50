@@ -16,7 +16,6 @@ public class Room : MonoBehaviour
 
     [SerializeField] GameObject doorPref;
 
-    public GameObject enemyPref;
     public List<GameObject> enemies;
 
     public Cinemachine.CinemachineVirtualCamera cam;
@@ -24,6 +23,7 @@ public class Room : MonoBehaviour
     private Transform[] enemySpawnLocations = new Transform[0];
 
     [SerializeField] Vector3 northSpawn, eastSpawn, southSpawn, westSpawn;
+    public GameObject chestPref;
 
     private void Start()
     {
@@ -118,6 +118,7 @@ public class Room : MonoBehaviour
 
         cam.gameObject.SetActive(true);
 
+        GameManager.Instance.currentRoom = this;
         GameManager.Instance.player.transform.position = transform.position;
         GameManager.Instance.AgePlayer();
 
@@ -134,7 +135,25 @@ public class Room : MonoBehaviour
         //Spawn the correct number of enemies
         for (int i = 0; i < numEnemiesToSpawn; i++)
         {
-            var nmy = Instantiate(enemyPref, enemySpawnLocations[Random.Range(0, enemySpawnLocations.Length)].position, Quaternion.identity, transform);
+            GameObject obj = null;
+
+            switch (GameManager.Instance.currentAgeGroup)
+            {
+                case eAgeGroup.YOUNG:
+                    obj = GameManager.Instance.youngEnemies[Random.Range(0, GameManager.Instance.youngEnemies.Length)];
+                    break;
+                case eAgeGroup.STUDENT:
+                    obj = GameManager.Instance.studentEnemies[Random.Range(0, GameManager.Instance.studentEnemies.Length)];
+                    break;
+                case eAgeGroup.ADULT:
+                    obj = GameManager.Instance.adultEnemies[Random.Range(0, GameManager.Instance.adultEnemies.Length)];
+                    break;
+                case eAgeGroup.OLD:
+                    obj = GameManager.Instance.oldEnemies[Random.Range(0, GameManager.Instance.oldEnemies.Length)];
+                    break;
+            }
+
+            var nmy = Instantiate(obj, enemySpawnLocations[Random.Range(0, enemySpawnLocations.Length)].position, Quaternion.identity, transform);
             nmy.transform.position = new Vector3(nmy.transform.position.x, nmy.transform.position.y, -1);
             enemies.Add(nmy);
         }
@@ -143,6 +162,35 @@ public class Room : MonoBehaviour
     public void ExitRoom()
     {
         cam.gameObject.SetActive(false);
+
+        if(north)
+        {
+            north.door.doorVal = eDoorVal.LOCKED;
+        }
+
+        if (east)
+        {
+            east.door.doorVal = eDoorVal.LOCKED;
+        }
+
+        if (south)
+        {
+            south.door.doorVal = eDoorVal.LOCKED;
+        }
+
+        if (west)
+        {
+            west.door.doorVal = eDoorVal.LOCKED;
+        }
+
+        int childCount = transform.childCount;
+
+        for (int i = 0; i < childCount; i++)
+        {
+            if (transform.GetChild(i).gameObject.CompareTag("NoDestroy") || transform.GetChild(i).gameObject.CompareTag("EnemySpawner")) continue;
+
+            Destroy(transform.GetChild(i).gameObject);
+        }
     }
 
     public void RemoveEnemy(GameObject nmy)
@@ -164,6 +212,8 @@ public class Room : MonoBehaviour
 
             if (west != null && west.door.doorVal != 0)
                 west.door.doorVal = eDoorVal.UNLOCKED;
+
+            Instantiate(chestPref, transform.position, Quaternion.identity, transform);
         }
     }
 }

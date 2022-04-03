@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 7925224789345663345}
   m_Layer: 0
   m_Name: WallE
-  m_TagString: Untagged
+  m_TagString: NoDestroy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -142,7 +142,7 @@ GameObject:
   - component: {fileID: 7335046694419650452}
   m_Layer: 0
   m_Name: WallN
-  m_TagString: Untagged
+  m_TagString: NoDestroy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -259,7 +259,7 @@ GameObject:
   - component: {fileID: 808955418352582702}
   m_Layer: 0
   m_Name: GFX
-  m_TagString: Untagged
+  m_TagString: NoDestroy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -319,7 +319,7 @@ SpriteRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_Sprite: {fileID: 21300000, guid: 969be9014fa6a104c915f03fd93e9ea8, type: 3}
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_Color: {r: 0.254717, g: 0.254717, b: 0.254717, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
@@ -371,7 +371,7 @@ GameObject:
   - component: {fileID: 2709968287573014341}
   m_Layer: 0
   m_Name: CM vcam1
-  m_TagString: Untagged
+  m_TagString: NoDestroy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -483,13 +483,13 @@ MonoBehaviour:
   ageGroup: 0
   coord: {x: 0, y: 0}
   doorPref: {fileID: 1249749940880503962, guid: e06f362eb9dd00d4da607dbe9cfaad6c, type: 3}
-  enemyPref: {fileID: 3962652824015161645, guid: 8ec080f4fe0cdcf438533edd2b260836, type: 3}
   enemies: []
   cam: {fileID: 2709968287573014341}
   northSpawn: {x: 0, y: 4, z: -1}
   eastSpawn: {x: 7, y: 0, z: -1}
   southSpawn: {x: 0, y: -4, z: -1}
   westSpawn: {x: -7, y: 0, z: -1}
+  chestPref: {fileID: 7288433237493071202, guid: 4d115ad24243b7b448d4fb40d32e6c9b, type: 3}
 --- !u!1 &5072843392621869382
 GameObject:
   m_ObjectHideFlags: 0
@@ -562,7 +562,7 @@ GameObject:
   - component: {fileID: 4078934695762173969}
   m_Layer: 0
   m_Name: WallS
-  m_TagString: Untagged
+  m_TagString: NoDestroy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -709,7 +709,7 @@ GameObject:
   - component: {fileID: 2206791050729858576}
   m_Layer: 0
   m_Name: WallW
-  m_TagString: Untagged
+  m_TagString: NoDestroy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -765,7 +765,7 @@ GameObject:
   - component: {fileID: 1479337408625363368}
   m_Layer: 0
   m_Name: EnemySpawners
-  m_TagString: Untagged
+  m_TagString: NoDestroy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0

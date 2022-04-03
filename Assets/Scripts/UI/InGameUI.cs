@@ -7,6 +7,7 @@ public class InGameUI : MonoBehaviour
 {
     public TMP_Text ageText;
     public TMP_Text hpText;
+    public TMP_Text moneyText;
     public GameObject topPanel;
     public GameObject deathScreen;
 
@@ -18,6 +19,11 @@ public class InGameUI : MonoBehaviour
     public void UpdateHealthText(int health)
     {
         hpText.text = $"HP: {health}";
+    }
+
+    public void UpdateMoneyText()
+    {
+        moneyText.text = $"Money: ${GameManager.Instance.currentMoneyAmount}";
     }
 
     public void PlayerDieUI()

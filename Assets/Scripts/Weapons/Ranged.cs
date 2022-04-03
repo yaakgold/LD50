@@ -21,7 +21,7 @@ public class Ranged : Weapon
         var proj = Instantiate(projectile, transform.position, transform.rotation);
         if(proj.TryGetComponent(out Projectile p))
         {
-            p.Fire(fireVelocity, damage, "Enemy");
+            p.Fire(fireVelocity, damage);
         }
         
         StartCoroutine(Timer());
